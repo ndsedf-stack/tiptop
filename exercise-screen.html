@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise Screen</title>
+  <link rel="stylesheet" href="exercise-screen.css">
+</head>
+<body>
+  <div id="exercise-container"></div>
+
+  <script type="module">
+    import { ExerciseScreenRenderer } from './exercise-screen-renderer.js';
+
+    const renderer = new ExerciseScreenRenderer('exercise-container');
+    renderer.render({
+      name: "Trap Bar Deadlift",
+      category: "COMPOUND • DOS / JAMBES",
+      gifUrl: "trap-bar-deadlift.gif",
+      params: {
+        weightDefault: 100,
+        setsTotal: 5,
+        repsPerSet: 5,
+        tempo: "3-1-2",
+        restSeconds: 120
+      },
+      sets: [
+        { id: 1, weight: 100, reps: 5, state: "complete", techniques: {} },
+        { id: 2, weight: 100, reps: 5, state: "active", techniques: { dropSet: true } },
+        { id: 3, weight: 100, reps: 5, state: "pending", techniques: {} },
+        { id: 4, weight: 100, reps: 5, state: "pending", techniques: { restPause: true } },
+        { id: 5, weight: 100, reps: 5, state: "pending", techniques: {} }
+      ],
+      stats: {
+        completedSets: 1,
+        currentVolume: 500,
+        volumeTarget: 2500
+      }
+    });
+  </script>
+</body>
+</html>
